@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CoreApi.Model;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,9 +11,10 @@ namespace CoreApi.Repo
     public class SampleRepo
     {
         //data get method
-        public IList<string>Sample(string conn)
+        public IList<LocationGroup> Sample(string conn)
         {
-            return new List<string>();
+            //List<LocationGroup> lm = new List<LocationGroup>();
+            return new List<LocationGroup>();
         }
     }
 }

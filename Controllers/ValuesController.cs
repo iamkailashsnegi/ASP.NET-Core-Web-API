@@ -1,9 +1,12 @@
-﻿using CoreApi.Repo;
+﻿using CoreApi.Model;
+using CoreApi.Repo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,10 +25,11 @@ namespace CoreApi.Controllers
             _connectionString = _configuration.GetSection("Data").GetSection("ConnectionString").Value;
         }
 
-        [HttpGet("Sample")]
-        public IList<string> GetSample()
+        //GET: api/values
+        [HttpGet]
+        public IList<LocationGroup> GetSample()
         {
-            IList<string> _strList;
+            IList<LocationGroup> _strList;
             var _repo = new Repo.SampleRepo();
             _strList = _repo.Sample(_connectionString);
             return _strList;
